@@ -6,7 +6,7 @@ from pandas import json_normalize
 import numpy as np
 
 # Initialize Elasticsearch client
-es = Elasticsearch(hosts="http://elastic:P_eQlQpVRDRbjvzLRds-@localhost:9201")
+es = Elasticsearch(hosts="http://elastic:password@localhost:9201")
 
 # Define search body to aggregate products
 search_body = {
