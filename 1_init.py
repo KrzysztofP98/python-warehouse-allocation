@@ -11,7 +11,7 @@ es = Elasticsearch(hosts="http://elastic:password@localhost:9201")
 
 # Ingest data from 'sales.csv' into the 'sales_dapom' index.
 # The buffer size of 5000 means the data will be processed in chunks of 5000 records at a time.
-ingest_csv_file_into_elastic_index("C:/Users/krzys/Desktop/final/sales.csv", es, "sales_dapom", 5000)
+ingest_csv_file_into_elastic_index("sales.csv", es, "sales_dapom", 5000)
 
 # Ingest data from 'margins.csv' into the 'profits_dapom' index.
 # Again, using a buffer size of 5000 for chunked processing.
