@@ -6,7 +6,7 @@ from pandas import json_normalize
 import numpy as np
 
 # Initialize Elasticsearch client
-es = Elasticsearch(hosts="http://elastic:password@localhost:9201")
+es = Elasticsearch(hosts="http://localhost:9200")
 
 # Define search body to aggregate products
 search_body = {
@@ -23,7 +23,6 @@ search_body = {
 
 # Execute search query
 result = es.search(index="sales_dapom", body=search_body)
-
 
 # Convert response to JSON serializable format
 result_dict = {
@@ -47,6 +46,9 @@ print(dfWithProducts)
 
 # Save DataFrame to CSV
 dfWithProducts.to_csv('count.csv', index=False)
+
+# Initialize a list to hold final product statistics
+final_stats = []
 
 # Iterate over each product to perform further analysis
 for _, row in dfWithProducts.iterrows():
@@ -72,11 +74,6 @@ for _, row in dfWithProducts.iterrows():
                         'max': 730
                     }
                 }
-            },
-            'test': {
-                'extended_stats_bucket': {
-                    'buckets_path': 'days>_count'
-                }
             }
         }
     }
@@ -92,40 +89,33 @@ for _, row in dfWithProducts.iterrows():
         "aggregations": result1.get('aggregations')
     }
 
-    # Print JSON formatted response
-    print(json.dumps(result1_dict, indent=4))
-
     # Normalize the days aggregation to create a DataFrame
     df = pd.DataFrame(json_normalize(result1_dict['aggregations']['days']['buckets']))
-    df['product_id'] = product_id  # Add product_id column
-
-    # Rename columns for better readability
-    df.rename(columns={'key': 'day', 'doc_count': 'sales'}, inplace=True)
-
-    # Reorder columns
-    df = df[['product_id', 'day', 'sales']]
-
-    # Save DataFrame to CSV (append mode)
-    df.to_csv('sales_product_each_row.csv', encoding='utf-8', mode='a', index=False)
 
     # Create an array to hold daily sales data
     Array = np.zeros(730)
     for bucket in result1_dict['aggregations']['days']['buckets']:
         Array[int(bucket['key']) - 1] = bucket['doc_count']
 
-    # Add average demand and standard deviation to the DataFrame
-    df['averageDemand'] = Array.mean()
-    df['StandardDeviation'] = Array.std()
+    # Calculate average demand and standard deviation for this product
+    averageDemand = Array.mean()
+    standardDeviation = Array.std()
 
-# After the loop: Aggregate and clean up final DataFrame
-final_df = df[['product_id', 'averageDemand', 'StandardDeviation']]
-final_df = final_df.dropna()  # Drop rows with NaN values
+    # Append product-level stats to final list
+    final_stats.append({
+        'product_id': product_id,
+        'averageDemand': averageDemand,
+        'StandardDeviation': standardDeviation
+    })
 
-# Print final DataFrame
-print(final_df)
+# Create a DataFrame from the product statistics
+final_stats_df = pd.DataFrame(final_stats)
 
-# Concatenate with the initial DataFrame
-final_result = pd.concat([dfWithProducts, final_df], axis=1)
+# Merge the product stats with the initial product data
+final_result = pd.merge(dfWithProducts, final_stats_df, on='product_id', how='left')
 
-# Save final result to CSV (append mode)
-final_result.to_csv('demand_final.csv', encoding='utf-8', mode='a', index=False)
+# Print the final result DataFrame
+print(final_result)
+
+# Save final result to CSV
+final_result.to_csv('demand_final.csv', encoding='utf-8', index=False)
