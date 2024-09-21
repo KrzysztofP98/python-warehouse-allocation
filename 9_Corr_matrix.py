@@ -99,4 +99,4 @@ for index, row in dfWithProducts.iterrows():
         Array[0, int(bucket['key'] - 1)] = bucket['doc_count']  # Adjust for 0-based index
 
     # Append the daily sales data to a CSV file
-    pd.DataFrame(Array).to_csv("Array.csv", encoding='utf-8', mode='a', header=False)
+    pd.DataFrame(Array).to_csv("Array.csv", encoding='utf-8', mode='w')
