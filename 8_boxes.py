@@ -15,8 +15,8 @@ box_volume = 40 * 40 * 20
 print(box_volume)  # Print the volume of a single box for reference
 
 # Load the CSV files into the DataFrame (this file contains product volume & stock information)
-pt = pd.read_csv('C:/Users/krzys/Desktop/final/volumes.csv')
-stock = pd.read_csv('C:/Users/krzys/Desktop/final/Base_stock_levels.csv')
+pt = pd.read_csv('volumes.csv')
+stock = pd.read_csv('Base_stock_levels.csv')
 
 # Remove any columns in 'pt' that have 'Unnamed' in their name (artifact of CSV import)
 pt = pt.loc[:, ~pt.columns.str.contains('^Unnamed')]
