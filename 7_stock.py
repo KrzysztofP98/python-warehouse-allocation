@@ -11,8 +11,8 @@ import seaborn as sns  # Used for data visualization
 from math import sqrt  # Used to calculate square root, for standard deviation adjustments
 
 # Load the CSV files into a pandas DataFrame
-dem = pd.read_csv('C:/Users/krzys/Desktop/final/stats.csv')
-pt = pd.read_csv('C:/Users/krzys/Desktop/final/product_classes.csv')
+dem = pd.read_csv('stats.csv')
+pt = pd.read_csv('product_classes.csv')
 
 # Display the contents of the 'dem' DataFrame to check the loaded data
 print(dem)
