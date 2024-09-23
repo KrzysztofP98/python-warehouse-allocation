@@ -8,8 +8,8 @@ import matplotlib.pyplot as plt
 from _10_corr_matrix1 import couples
 
 # Load product loss and stock level data from CSV files
-loss = pd.read_csv('C:/Users/krzys/Desktop/final/Average_daily_profit_loss.csv')
-stock = pd.read_csv('C:/Users/krzys/Desktop/final/Base_stock_levels.csv')
+loss = pd.read_csv('Average_daily_profit_loss.csv')
+stock = pd.read_csv('Base_stock_levels.csv')
 
 # Clean data by removing any columns that contain 'Unnamed' (usually extra index columns)
 loss = loss.loc[:, ~loss.columns.str.contains('^Unnamed')]
@@ -19,8 +19,8 @@ stock = stock.loc[:, ~stock.columns.str.contains('^Unnamed')]
 loss = loss.sort_values(by=['product_id'])
 
 # Save the sorted loss data to a new CSV file and reload it
-loss.to_csv('C:/Users/krzys/Desktop/final/loss_sorted_id.csv')
-loss_s = pd.read_csv('C:/Users/krzys/Desktop/final/loss_sorted_id.csv')
+loss.to_csv('loss_sorted_id.csv')
+loss_s = pd.read_csv('loss_sorted_id.csv')
 
 # Add the 'Average_daily_profit_loss' column from loss to the stock dataframe
 column = loss_s['Average_daily_profit_loss']
@@ -31,7 +31,7 @@ print("Updated stock dataframe with 'Average_daily_profit_loss' column:")
 print(stock)
 
 # Load box data, which contains the number of boxes each product takes up
-box = pd.read_csv('C:/Users/krzys/Desktop/final/boxes.csv')
+box = pd.read_csv('boxes.csv')
 
 # Print the box data
 print("\nBox data (number of boxes per product):")
