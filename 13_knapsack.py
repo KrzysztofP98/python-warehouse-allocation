@@ -8,7 +8,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 # Read the ratio CSV
-ratio = pd.read_csv('C:/Users/krzys/Desktop/final/ratio.csv')
+ratio = pd.read_csv('ratio.csv')
 
 # Extract the relevant columns
 P = ratio['Average_daily_profit'].values.tolist()
