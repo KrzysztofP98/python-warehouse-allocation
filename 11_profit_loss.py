@@ -9,7 +9,7 @@ from statistics import mean
 import seaborn as sns
 from math import sqrt
 
-pc = pd.read_csv('C:/Users/krzys/Desktop/final/product_classes.csv')
+pc = pd.read_csv('product_classes.csv')
 
 pc = pc.loc[:, ~pc.columns.str.contains('^Unnamed')]
 
