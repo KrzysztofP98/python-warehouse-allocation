@@ -1,7 +1,7 @@
 # Python Warehouse Allocation: Optimizing Inventory for Belsimpel
 
 ### Case Description
-The case study is inspired by real-life challenges faced by Belsimpel, an online store for mobile phones and contracts. Belsimpel is facing operational bottlenecks due to a rapidly expanding product assortment. The current warehouse, although efficient, can only accommodate a limited collection of products. The challenge is to determine which products to store to minimize profit losses, considering delivery times, demand patterns, and space constraints. The code addresses the decision-making processes and methodologies used to solve the allocation problem of products in a warehouse. 
+The case study is inspired by real-life challenges faced by Belsimpel, an online store for mobile phones and contracts. Belsimpel is facing operational bottlenecks due to a rapidly expanding product assortment. The current warehouse, although efficient, can only accommodate a limited collection of products. The challenge is to determine which products to store to minimize profit losses, considering delivery times, demand patterns, and space constraints. The code outlines the decision-making processes and methodologies used to solve the allocation problem of products in a warehouse. 
 
 ##### Key Concepts
 
