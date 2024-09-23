@@ -11,7 +11,7 @@ import seaborn as sns  # Useful for advanced data visualizations
 from adjustText import adjust_text  # Helps avoid overlapping text in plots
 
 # Load the CSV file with average daily profits into a pandas DataFrame
-new = pd.read_csv('C:/Users/krzys/Desktop/final/average_daily_profits.csv')
+new = pd.read_csv('average_daily_profits.csv')
 
 # Display the DataFrame to check the loaded data
 print(new)
