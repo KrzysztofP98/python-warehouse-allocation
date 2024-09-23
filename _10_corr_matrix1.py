@@ -11,8 +11,8 @@ from math import sqrt  # Importing sqrt function for mathematical operations
 from adjustText import adjust_text  # Importing adjust_text for improving text placement in plots
 
 # Load data from CSV files into pandas DataFrames
-array = pd.read_csv('C:/Users/krzys/Desktop/final/Array.csv')
-id = pd.read_csv('C:/Users/krzys/Desktop/final/Products.csv')
+array = pd.read_csv('Array.csv')
+id = pd.read_csv('Products.csv')
 
 # Drop every second row from the array DataFrame
 array = array.drop(index=array.index[1::2])
@@ -60,7 +60,7 @@ L = list(zip(a.index[i], a.columns[c]))
 print('list L:', L)
 
 # Load product classes from CSV into a DataFrame
-pc = pd.read_csv('C:/Users/krzys/Desktop/final/product_classes.csv')
+pc = pd.read_csv('product_classes.csv')
 # Create a heatmap of the correlation matrix
 ax = sns.heatmap(corr_matrix, cmap=sns.cubehelix_palette(as_cmap=True), vmin=0, vmax=1)
 ax.set(xlabel="product ids", ylabel="product ids")
