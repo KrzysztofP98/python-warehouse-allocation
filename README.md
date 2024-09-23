@@ -157,4 +157,5 @@ Calculate daily profit/loss based on product classes and average daily profits.
 To run the analysis:
 - Ensure Elasticsearch is running and accessible.
 - Execute the Python script in an environment where the required libraries are installed.
+- Ensure that file paths are adapted to your specific directory.
 - Check the output files for results.
