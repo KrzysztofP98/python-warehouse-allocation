@@ -110,51 +110,31 @@ If you need to run this script multiple times, consider one of the following app
 - Visualization:
     - Create error bar plots for average daily demand.
     - Generate histograms for average daily profits.
-
 - Retrieving Product Dimensions
-    - We aggregate product dimensions (length, width, height) from the dimensions_dapom index:
-
-- Volume Calculation
-    - After retrieving the dimensions, we calculate the volume for each product:
+    - We aggregate product dimensions (length, width, height) from the dimensions_dapom index.   
+- Volume Calculation for each product.
 - Product Classification
 Products are categorized based on their average daily profits, with three classes defined:
     - Class 1: Top 20% of products
     - Class 2: Middle range products
     - Class 3: Bottom products
 Classifications are saved to product_classes.csv.
-Visualizations
-Box Calculation:
-
+- Visualizations
+- Box Calculation:
     Calculate the required number of boxes for each product based on volume and base stock.
     Adjust fractional box counts to whole numbers using specific thresholds.
-
-Data Visualization:
-
+- Data Visualization:
     Create a histogram to visualize the distribution of the number of boxes across products.
-
 - Elasticsearch Querying:
-
     Query Elasticsearch to aggregate product sales data and normalize it into DataFrames.
-
 - Correlation Analysis:
-
     Calculate and visualize the correlation matrix of products based on sales data.
     Identify pairs of products with significant correlations.
-
 - Profit and Loss Calculations:
-
 Calculate daily profit/loss based on product classes and average daily profits.
     Filter products based on cumulative box counts to assess capacity constraints.
-
 - Optimization: Set up a linear programming model to maximize profit while adhering to box capacity constraints.
-
-We generate various plots, including:
-
-    Volume Histogram: Shows the distribution of product volumes.
-    Average Profits per Product: Displays profits color-coded by class.
-    Bar Plots: Illustrate the number of products in each class and average profits per class.
-
-
+- 
 ### Output Files
 
     count.csv: Contains total sales and demand statistics.
