@@ -158,3 +158,26 @@ To run the analysis:
 - Execute the Python script in an environment where the required libraries are installed.
 - Ensure that file paths are adapted to your specific directory.
 - Check the output files for results.
+
+### Example Screenshots
+
+![average_profits_per_class](https://github.com/user-attachments/assets/94415ea6-b38f-42ad-bf9c-7cfacd56514e)
+
+![average_proftis_per_product_annotated](https://github.com/user-attachments/assets/7a69cb67-214f-4db2-bc61-63c3bc2ee325)
+
+![volumes_histogram](https://github.com/user-attachments/assets/c6b00bd4-1b08-4f4e-af4e-5b3c2fa888b4)
+
+![correlation_matrix_annotations](https://github.com/user-attachments/assets/31958ca9-6cae-4390-900c-c3596ef5c251)
+
+
+### Contributions
+
+Krzysztof Piotrowski
+
+### License
+
+This project is licensed under the MIT License. See the LICENSE file for details.
+
+### Contact
+
+For any questions or issues, please contact krzysztof.piotrowski.in@gmail.com
