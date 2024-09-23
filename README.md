@@ -169,7 +169,7 @@ To run the analysis:
 
 ![volumes_histogram](https://github.com/user-attachments/assets/c6b00bd4-1b08-4f4e-af4e-5b3c2fa888b4)
 
-![correlation_matrix_annotations](https://github.com/user-attachments/assets/31958ca9-6cae-4390-900c-c3596ef5c251)
+![correlation_matrix_annotations](https://github.com/user-attachments/assets/27dfb48a-148b-4bda-aee2-a65b11f28743)
 
 
 ### Contributions
