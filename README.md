@@ -41,9 +41,9 @@ Save the configuration file and restart Elasticsearch for the changes to take ef
 
 This script ingests data from CSV files into an Elasticsearch instance, creating or updating specific indices. The following files are processed:
 
-    sales.csv → Index: sales_dapom1
-    margins.csv → Index: profits_dapom1
-    dimensions.csv → Index: dimensions_dapom1
+    sales.csv → Index: sales_dapom
+    margins.csv → Index: profits_dapom
+    dimensions.csv → Index: dimensions_dapom
 
 ##### Prerequisites
 
