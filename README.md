@@ -15,7 +15,7 @@ The case study is inspired by real-life challenges faced by Belsimpel, an online
 This project contains scripts to ingest CSV and JSON data into an Elasticsearch index. It uses Python and the elasticsearch library for interacting with Elasticsearch.
 Prerequisites
 
-Elasticsearch: Ensure Elasticsearch is installed and running on your local machine. The scripts are configured to connect to http://localhost:9201.
+Elasticsearch: Ensure Elasticsearch is installed and running on your local machine. The scripts are configured to connect to http://localhost:9200.
 
 Python Packages: Install the necessary Python packages using pip. You'll need:
 - elasticsearch
@@ -136,19 +136,18 @@ Calculate daily profit/loss based on product classes and average daily profits.
 - Optimization: Set up a linear programming model to maximize profit while adhering to box capacity constraints.
 - 
 ### Output Files
-
-    count.csv: Contains total sales and demand statistics.
-    demand_final.csv: Merged dataset of sales and demand statistics.
-    stats.csv: Sorted dataset by average daily demand.
-    average_daily_profits.csv: Sorted dataset by average daily profits.
-    errorbar.png: Error bar plot of average daily demand.
-    average_daily_profits_histogram.png: Histogram of average daily profits.
-    volumes.csv: Contains calculated product volumes.
-    product_classes.csv: Lists products classified by profit category.
-    Base_stock_levels.csv: Final stock level recommendations.
-        volumes.csv: Contains calculated product volumes.
-    product_classes.csv: Lists products classified by profit category.
-    Base_stock_levels.csv: Final stock level recommendations.
+- count.csv: Contains total sales and demand statistics.
+- demand_final.csv: Merged dataset of sales and demand statistics.
+- stats.csv: Sorted dataset by average daily demand.
+- average_daily_profits.csv: Sorted dataset by average daily profits.
+- errorbar.png: Error bar plot of average daily demand.
+- average_daily_profits_histogram.png: Histogram of average daily profits.
+- volumes.csv: Contains calculated product volumes.
+- product_classes.csv: Lists products classified by profit category.
+- Base_stock_levels.csv: Final stock level recommendations.
+- volumes.csv: Contains calculated product volumes.
+- product_classes.csv: Lists products classified by profit category.
+- Base_stock_levels.csv: Final stock level recommendations.
 
 
 
