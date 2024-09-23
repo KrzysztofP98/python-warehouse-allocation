@@ -77,9 +77,10 @@ If you need to run this script multiple times, consider one of the following app
 
 - Avoid Duplicates: Implement a mechanism to check for and avoid duplicate records during ingestion, such as using unique document IDs for each record.
 
-Requirements
+### Requirements
 
 - Python 3.x
+- Elasticsearch
     Libraries:
     - `datetime`: For handling date and time.
     - `elasticsearch`: For interacting with Elasticsearch.
@@ -94,12 +95,12 @@ Requirements
     - `adjustText`: For adjusting text in plots.
     - `gurobipy`: For optimization modeling.
 
-Data Sources
+### Data Sources
 - Sales Data: Indexed in Elasticsearch under sales_dapom.
 - Profit Data: Indexed in Elasticsearch under profits_dapom.
 - Dimensions Data: Indexed in Elasticsearch under dimensions_dapom.
 
-Key Steps
+### Key Steps
 
 - Data Aggregation:
     - Aggregate product sales by product ID and calculate total sales.
@@ -154,7 +155,7 @@ We generate various plots, including:
     Bar Plots: Illustrate the number of products in each class and average profits per class.
 
 
-Output Files
+### Output Files
 
     count.csv: Contains total sales and demand statistics.
     demand_final.csv: Merged dataset of sales and demand statistics.
@@ -171,7 +172,7 @@ Output Files
 
 
 
-Usage
+### Usage
 
 To run the analysis:
 - Ensure Elasticsearch is running and accessible.
