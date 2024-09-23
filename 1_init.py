@@ -5,7 +5,7 @@ from loaders import ingest_csv_file_into_elastic_index
 
 # Initialize an Elasticsearch client.
 # Replace the URL and credentials with your own Elasticsearch instance details.
-es = Elasticsearch(hosts="http://elastic:password@localhost:9201")
+es = Elasticsearch(hosts="http://localhost:9200")
 
 # Ingest CSV data into Elasticsearch indices.
 
