@@ -1,7 +1,7 @@
-# python-warehouse-allocation
+# Python Warehouse Allocation: Optimizing Inventory for Belsimpel
 
 ### Case Description
-The case study is inspired by real-life challenges faced by Belsimpel, an online store for mobile phones and contracts. Belsimpel is facing operational bottlenecks due to a rapidly expanding product assortment. The current warehouse, although efficient, can only accommodate a limited collection of products. The challenge is to determine which products to store to minimize profit losses, considering delivery times and customer behavior. The code addresses the decision-making processes and methodologies used to solve the allocation problem of products in a warehouse. 
+The case study is inspired by real-life challenges faced by Belsimpel, an online store for mobile phones and contracts. Belsimpel is facing operational bottlenecks due to a rapidly expanding product assortment. The current warehouse, although efficient, can only accommodate a limited collection of products. The challenge is to determine which products to store to minimize profit losses, considering delivery times, demand patterns, and space constraints. The code addresses the decision-making processes and methodologies used to solve the allocation problem of products in a warehouse. 
 
 ##### Key Concepts
 
@@ -76,3 +76,104 @@ If you need to run this script multiple times, consider one of the following app
 - Use Unique Indices: Modify the index names to create new indices on each run (e.g., sales_dapom_v2, profits_dapom_v2).
 
 - Avoid Duplicates: Implement a mechanism to check for and avoid duplicate records during ingestion, such as using unique document IDs for each record.
+
+Requirements
+
+- Python 3.x
+    Libraries:
+    - `datetime`: For handling date and time.
+    - `elasticsearch`: For interacting with Elasticsearch.
+    - `json`: For parsing JSON data.
+    - `pandas`: For data manipulation and analysis.
+    - `numpy`: For numerical operations.
+    - `matplotlib`: For data visualization.
+    - `csv`: For handling CSV file operations.
+    - `statistics`: For basic statistical operations.
+    - `seaborn`: For advanced data visualizations.
+    - `math`: For mathematical functions.
+    - `adjustText`: For adjusting text in plots.
+    - `gurobipy`: For optimization modeling.
+
+Data Sources
+- Sales Data: Indexed in Elasticsearch under sales_dapom.
+- Profit Data: Indexed in Elasticsearch under profits_dapom.
+- Dimensions Data: Indexed in Elasticsearch under dimensions_dapom.
+
+Key Steps
+
+- Data Aggregation:
+    - Aggregate product sales by product ID and calculate total sales.
+    - Further analyze sales data by day to compute average demand and standard deviation.
+- Statistics Calculation:
+    - Combine sales and demand statistics into a final dataset.
+- Visualization:
+    - Create error bar plots for average daily demand.
+    - Generate histograms for average daily profits.
+
+- Retrieving Product Dimensions
+    - We aggregate product dimensions (length, width, height) from the dimensions_dapom index:
+
+- Volume Calculation
+    - After retrieving the dimensions, we calculate the volume for each product:
+- Product Classification
+Products are categorized based on their average daily profits, with three classes defined:
+    - Class 1: Top 20% of products
+    - Class 2: Middle range products
+    - Class 3: Bottom products
+Classifications are saved to product_classes.csv.
+Visualizations
+Box Calculation:
+
+    Calculate the required number of boxes for each product based on volume and base stock.
+    Adjust fractional box counts to whole numbers using specific thresholds.
+
+Data Visualization:
+
+    Create a histogram to visualize the distribution of the number of boxes across products.
+
+- Elasticsearch Querying:
+
+    Query Elasticsearch to aggregate product sales data and normalize it into DataFrames.
+
+- Correlation Analysis:
+
+    Calculate and visualize the correlation matrix of products based on sales data.
+    Identify pairs of products with significant correlations.
+
+- Profit and Loss Calculations:
+
+Calculate daily profit/loss based on product classes and average daily profits.
+    Filter products based on cumulative box counts to assess capacity constraints.
+
+- Optimization: Set up a linear programming model to maximize profit while adhering to box capacity constraints.
+
+We generate various plots, including:
+
+    Volume Histogram: Shows the distribution of product volumes.
+    Average Profits per Product: Displays profits color-coded by class.
+    Bar Plots: Illustrate the number of products in each class and average profits per class.
+
+
+Output Files
+
+    count.csv: Contains total sales and demand statistics.
+    demand_final.csv: Merged dataset of sales and demand statistics.
+    stats.csv: Sorted dataset by average daily demand.
+    average_daily_profits.csv: Sorted dataset by average daily profits.
+    errorbar.png: Error bar plot of average daily demand.
+    average_daily_profits_histogram.png: Histogram of average daily profits.
+    volumes.csv: Contains calculated product volumes.
+    product_classes.csv: Lists products classified by profit category.
+    Base_stock_levels.csv: Final stock level recommendations.
+        volumes.csv: Contains calculated product volumes.
+    product_classes.csv: Lists products classified by profit category.
+    Base_stock_levels.csv: Final stock level recommendations.
+
+
+
+Usage
+
+To run the analysis:
+- Ensure Elasticsearch is running and accessible.
+- Execute the Python script in an environment where the required libraries are installed.
+- Check the output files for results.
